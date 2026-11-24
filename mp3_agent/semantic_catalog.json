@@ -1,0 +1,930 @@
+{
+  "version": 1,
+  "source_sha256": {
+    "reader.py": "a63d4869fad6ca77b32a49e8d770b34a4a85109768e12e8e4d6f362932c076b9",
+    "corpus.sqlite": "e21626924ba6984cc01defd5af672662c29338606fffd0548432b305b1173ac2"
+  },
+  "rules": [
+    {
+      "id": 21,
+      "label": "missing_distinct",
+      "intent": {
+        "text": "Return distinct values of column 0."
+      },
+      "guard": {
+        "assertions": [],
+        "domain_constraints": [],
+        "engine": "sqlite",
+        "intent_id": 21,
+        "native_validation_only": true,
+        "requirements": [
+          "exact_CIR_skeleton",
+          "declared_column_types",
+          "explicit_intent_match"
+        ]
+      },
+      "contract": {
+        "inputs": [
+          {
+            "nullable": [
+              true
+            ],
+            "types": [
+              "INTEGER"
+            ]
+          }
+        ],
+        "parameter_types": [],
+        "result_semantics": "bag"
+      }
+    },
+    {
+      "id": 23,
+      "label": "join_fanout_sum",
+      "intent": {
+        "text": "Sum column 1 from left rows having a right match, once per left row."
+      },
+      "guard": {
+        "assertions": [],
+        "domain_constraints": [],
+        "engine": "sqlite",
+        "intent_id": 23,
+        "native_validation_only": true,
+        "requirements": [
+          "exact_CIR_skeleton",
+          "declared_column_types",
+          "explicit_intent_match"
+        ]
+      },
+      "contract": {
+        "inputs": [
+          {
+            "nullable": [
+              true,
+              true
+            ],
+            "types": [
+              "INTEGER",
+              "INTEGER"
+            ]
+          },
+          {
+            "nullable": [
+              true,
+              true
+            ],
+            "types": [
+              "INTEGER",
+              "INTEGER"
+            ]
+          }
+        ],
+        "parameter_types": [],
+        "result_semantics": "bag"
+      }
+    },
+    {
+      "id": 25,
+      "label": "count_groups_vs_rows",
+      "intent": {
+        "text": "Return the number of distinct groups."
+      },
+      "guard": {
+        "assertions": [],
+        "domain_constraints": [],
+        "engine": "sqlite",
+        "intent_id": 25,
+        "native_validation_only": true,
+        "requirements": [
+          "exact_CIR_skeleton",
+          "declared_column_types",
+          "explicit_intent_match"
+        ]
+      },
+      "contract": {
+        "inputs": [
+          {
+            "nullable": [
+              true,
+              true
+            ],
+            "types": [
+              "INTEGER",
+              "INTEGER"
+            ]
+          }
+        ],
+        "parameter_types": [],
+        "result_semantics": "bag"
+      }
+    },
+    {
+      "id": 30,
+      "label": "union_instead_intersection",
+      "intent": {
+        "text": "Return distinct values appearing in both inputs."
+      },
+      "guard": {
+        "assertions": [],
+        "domain_constraints": [],
+        "engine": "sqlite",
+        "intent_id": 30,
+        "native_validation_only": true,
+        "requirements": [
+          "exact_CIR_skeleton",
+          "declared_column_types",
+          "explicit_intent_match"
+        ]
+      },
+      "contract": {
+        "inputs": [
+          {
+            "nullable": [
+              true
+            ],
+            "types": [
+              "INTEGER"
+            ]
+          },
+          {
+            "nullable": [
+              true
+            ],
+            "types": [
+              "INTEGER"
+            ]
+          }
+        ],
+        "parameter_types": [],
+        "result_semantics": "bag"
+      }
+    },
+    {
+      "id": 31,
+      "label": "count_distinct_extra",
+      "intent": {
+        "text": "Count non-null values preserving duplicates."
+      },
+      "guard": {
+        "assertions": [],
+        "domain_constraints": [],
+        "engine": "sqlite",
+        "intent_id": 31,
+        "native_validation_only": true,
+        "requirements": [
+          "exact_CIR_skeleton",
+          "declared_column_types",
+          "explicit_intent_match"
+        ]
+      },
+      "contract": {
+        "inputs": [
+          {
+            "nullable": [
+              true
+            ],
+            "types": [
+              "INTEGER"
+            ]
+          }
+        ],
+        "parameter_types": [],
+        "result_semantics": "bag"
+      }
+    },
+    {
+      "id": 39,
+      "label": "having_count_nulls",
+      "intent": {
+        "text": "Keep groups with at least two rows, even if their measures are NULL."
+      },
+      "guard": {
+        "assertions": [],
+        "domain_constraints": [],
+        "engine": "sqlite",
+        "intent_id": 39,
+        "native_validation_only": true,
+        "requirements": [
+          "exact_CIR_skeleton",
+          "declared_column_types",
+          "explicit_intent_match"
+        ]
+      },
+      "contract": {
+        "inputs": [
+          {
+            "nullable": [
+              true,
+              true
+            ],
+            "types": [
+              "INTEGER",
+              "INTEGER"
+            ]
+          }
+        ],
+        "parameter_types": [
+          "int"
+        ],
+        "result_semantics": "bag"
+      }
+    },
+    {
+      "id": 52,
+      "label": "extra_distinct",
+      "intent": {
+        "text": "Return column 0 preserving multiplicities."
+      },
+      "guard": {
+        "assertions": [],
+        "domain_constraints": [],
+        "engine": "sqlite",
+        "intent_id": 52,
+        "native_validation_only": true,
+        "requirements": [
+          "exact_CIR_skeleton",
+          "declared_column_types",
+          "explicit_intent_match"
+        ]
+      },
+      "contract": {
+        "inputs": [
+          {
+            "nullable": [
+              true
+            ],
+            "types": [
+              "INTEGER"
+            ]
+          }
+        ],
+        "parameter_types": [],
+        "result_semantics": "bag"
+      }
+    },
+    {
+      "id": 59,
+      "label": "exists_instead_not_exists",
+      "intent": {
+        "text": "Return outer values without an equal inner value, including NULL."
+      },
+      "guard": {
+        "assertions": [],
+        "domain_constraints": [],
+        "engine": "sqlite",
+        "intent_id": 59,
+        "native_validation_only": true,
+        "requirements": [
+          "exact_CIR_skeleton",
+          "declared_column_types",
+          "explicit_intent_match"
+        ]
+      },
+      "contract": {
+        "inputs": [
+          {
+            "nullable": [
+              true
+            ],
+            "types": [
+              "INTEGER"
+            ]
+          },
+          {
+            "nullable": [
+              true
+            ],
+            "types": [
+              "INTEGER"
+            ]
+          }
+        ],
+        "parameter_types": [],
+        "result_semantics": "bag"
+      }
+    },
+    {
+      "id": 72,
+      "label": "where_instead_having",
+      "intent": {
+        "text": "Keep groups whose total exceeds three; aggregate every row in each group."
+      },
+      "guard": {
+        "assertions": [],
+        "domain_constraints": [],
+        "engine": "sqlite",
+        "intent_id": 72,
+        "native_validation_only": true,
+        "requirements": [
+          "exact_CIR_skeleton",
+          "declared_column_types",
+          "explicit_intent_match"
+        ]
+      },
+      "contract": {
+        "inputs": [
+          {
+            "nullable": [
+              true,
+              true
+            ],
+            "types": [
+              "INTEGER",
+              "INTEGER"
+            ]
+          }
+        ],
+        "parameter_types": [
+          "int"
+        ],
+        "result_semantics": "bag"
+      }
+    },
+    {
+      "id": 86,
+      "label": "count_rows_nonnull",
+      "intent": {
+        "text": "Count the non-null values, including duplicates."
+      },
+      "guard": {
+        "assertions": [],
+        "domain_constraints": [],
+        "engine": "sqlite",
+        "intent_id": 86,
+        "native_validation_only": true,
+        "requirements": [
+          "exact_CIR_skeleton",
+          "declared_column_types",
+          "explicit_intent_match"
+        ]
+      },
+      "contract": {
+        "inputs": [
+          {
+            "nullable": [
+              true
+            ],
+            "types": [
+              "INTEGER"
+            ]
+          }
+        ],
+        "parameter_types": [],
+        "result_semantics": "bag"
+      }
+    },
+    {
+      "id": 100,
+      "label": "anti_join_wrong_null_column",
+      "intent": {
+        "text": "Return left values with no right match."
+      },
+      "guard": {
+        "assertions": [
+          "Right join key is non-null for every matched row."
+        ],
+        "domain_constraints": [],
+        "engine": "sqlite",
+        "intent_id": 100,
+        "native_validation_only": true,
+        "requirements": [
+          "exact_CIR_skeleton",
+          "declared_column_types",
+          "explicit_intent_match"
+        ]
+      },
+      "contract": {
+        "inputs": [
+          {
+            "nullable": [
+              true,
+              true
+            ],
+            "types": [
+              "INTEGER",
+              "INTEGER"
+            ]
+          },
+          {
+            "nullable": [
+              true,
+              true
+            ],
+            "types": [
+              "INTEGER",
+              "INTEGER"
+            ]
+          }
+        ],
+        "parameter_types": [],
+        "result_semantics": "bag"
+      }
+    },
+    {
+      "id": 106,
+      "label": "correlation_wrong_scope",
+      "intent": {
+        "text": "Return outer values with an equal inner value."
+      },
+      "guard": {
+        "assertions": [],
+        "domain_constraints": [],
+        "engine": "sqlite",
+        "intent_id": 106,
+        "native_validation_only": true,
+        "requirements": [
+          "exact_CIR_skeleton",
+          "declared_column_types",
+          "explicit_intent_match"
+        ]
+      },
+      "contract": {
+        "inputs": [
+          {
+            "nullable": [
+              true
+            ],
+            "types": [
+              "INTEGER"
+            ]
+          },
+          {
+            "nullable": [
+              true
+            ],
+            "types": [
+              "INTEGER"
+            ]
+          }
+        ],
+        "parameter_types": [],
+        "result_semantics": "bag"
+      }
+    },
+    {
+      "id": 113,
+      "label": "outer_count_star",
+      "intent": {
+        "text": "Count matched right rows per left value, returning zero for no match."
+      },
+      "guard": {
+        "assertions": [
+          "Right matching key is non-null in matched rows."
+        ],
+        "domain_constraints": [],
+        "engine": "sqlite",
+        "intent_id": 113,
+        "native_validation_only": true,
+        "requirements": [
+          "exact_CIR_skeleton",
+          "declared_column_types",
+          "explicit_intent_match"
+        ]
+      },
+      "contract": {
+        "inputs": [
+          {
+            "nullable": [
+              true,
+              true
+            ],
+            "types": [
+              "INTEGER",
+              "INTEGER"
+            ]
+          },
+          {
+            "nullable": [
+              true,
+              true
+            ],
+            "types": [
+              "INTEGER",
+              "INTEGER"
+            ]
+          }
+        ],
+        "parameter_types": [],
+        "result_semantics": "bag"
+      }
+    },
+    {
+      "id": 122,
+      "label": "extra_group_key",
+      "intent": {
+        "text": "Return one sum for each value of column 0."
+      },
+      "guard": {
+        "assertions": [],
+        "domain_constraints": [],
+        "engine": "sqlite",
+        "intent_id": 122,
+        "native_validation_only": true,
+        "requirements": [
+          "exact_CIR_skeleton",
+          "declared_column_types",
+          "explicit_intent_match"
+        ]
+      },
+      "contract": {
+        "inputs": [
+          {
+            "nullable": [
+              true,
+              true
+            ],
+            "types": [
+              "INTEGER",
+              "INTEGER"
+            ]
+          }
+        ],
+        "parameter_types": [],
+        "result_semantics": "bag"
+      }
+    },
+    {
+      "id": 132,
+      "label": "missing_correlation",
+      "intent": {
+        "text": "Return outer values with an equal inner value."
+      },
+      "guard": {
+        "assertions": [],
+        "domain_constraints": [],
+        "engine": "sqlite",
+        "intent_id": 132,
+        "native_validation_only": true,
+        "requirements": [
+          "exact_CIR_skeleton",
+          "declared_column_types",
+          "explicit_intent_match"
+        ]
+      },
+      "contract": {
+        "inputs": [
+          {
+            "nullable": [
+              true
+            ],
+            "types": [
+              "INTEGER"
+            ]
+          },
+          {
+            "nullable": [
+              true
+            ],
+            "types": [
+              "INTEGER"
+            ]
+          }
+        ],
+        "parameter_types": [],
+        "result_semantics": "bag"
+      }
+    },
+    {
+      "id": 145,
+      "label": "not_in_null_poison",
+      "intent": {
+        "text": "Return outer values without an equal inner value, including NULL."
+      },
+      "guard": {
+        "assertions": [],
+        "domain_constraints": [],
+        "engine": "sqlite",
+        "intent_id": 145,
+        "native_validation_only": true,
+        "requirements": [
+          "exact_CIR_skeleton",
+          "declared_column_types",
+          "explicit_intent_match"
+        ]
+      },
+      "contract": {
+        "inputs": [
+          {
+            "nullable": [
+              true
+            ],
+            "types": [
+              "INTEGER"
+            ]
+          },
+          {
+            "nullable": [
+              true
+            ],
+            "types": [
+              "INTEGER"
+            ]
+          }
+        ],
+        "parameter_types": [],
+        "result_semantics": "bag"
+      }
+    },
+    {
+      "id": 157,
+      "label": "having_aggregate_in_where",
+      "intent": {
+        "text": "Keep groups whose sum exceeds three."
+      },
+      "guard": {
+        "assertions": [],
+        "domain_constraints": [],
+        "engine": "sqlite",
+        "intent_id": 157,
+        "native_validation_only": true,
+        "requirements": [
+          "exact_CIR_skeleton",
+          "declared_column_types",
+          "explicit_intent_match"
+        ]
+      },
+      "contract": {
+        "inputs": [
+          {
+            "nullable": [
+              true,
+              true
+            ],
+            "types": [
+              "INTEGER",
+              "INTEGER"
+            ]
+          }
+        ],
+        "parameter_types": [
+          "int"
+        ],
+        "result_semantics": "bag"
+      }
+    },
+    {
+      "id": 172,
+      "label": "wrong_group_key",
+      "intent": {
+        "text": "Group by column 0 and count each group."
+      },
+      "guard": {
+        "assertions": [],
+        "domain_constraints": [],
+        "engine": "sqlite",
+        "intent_id": 172,
+        "native_validation_only": true,
+        "requirements": [
+          "exact_CIR_skeleton",
+          "declared_column_types",
+          "explicit_intent_match"
+        ]
+      },
+      "contract": {
+        "inputs": [
+          {
+            "nullable": [
+              true,
+              true
+            ],
+            "types": [
+              "INTEGER",
+              "INTEGER"
+            ]
+          }
+        ],
+        "parameter_types": [],
+        "result_semantics": "bag"
+      }
+    },
+    {
+      "id": 173,
+      "label": "not_in_outer_null",
+      "intent": {
+        "text": "Return outer values without an equal inner value, including NULL."
+      },
+      "guard": {
+        "assertions": [],
+        "domain_constraints": [],
+        "engine": "sqlite",
+        "intent_id": 173,
+        "native_validation_only": true,
+        "requirements": [
+          "exact_CIR_skeleton",
+          "declared_column_types",
+          "explicit_intent_match"
+        ]
+      },
+      "contract": {
+        "inputs": [
+          {
+            "nullable": [
+              true
+            ],
+            "types": [
+              "INTEGER"
+            ]
+          },
+          {
+            "nullable": [
+              true
+            ],
+            "types": [
+              "INTEGER"
+            ]
+          }
+        ],
+        "parameter_types": [],
+        "result_semantics": "bag"
+      }
+    },
+    {
+      "id": 180,
+      "label": "count_nonnull_rows",
+      "intent": {
+        "text": "Count all rows, including rows containing NULL."
+      },
+      "guard": {
+        "assertions": [],
+        "domain_constraints": [],
+        "engine": "sqlite",
+        "intent_id": 180,
+        "native_validation_only": true,
+        "requirements": [
+          "exact_CIR_skeleton",
+          "declared_column_types",
+          "explicit_intent_match"
+        ]
+      },
+      "contract": {
+        "inputs": [
+          {
+            "nullable": [
+              true
+            ],
+            "types": [
+              "INTEGER"
+            ]
+          }
+        ],
+        "parameter_types": [],
+        "result_semantics": "bag"
+      }
+    },
+    {
+      "id": 181,
+      "label": "missing_group_key",
+      "intent": {
+        "text": "Return the sum of column 1 separately for each value of column 0."
+      },
+      "guard": {
+        "assertions": [],
+        "domain_constraints": [],
+        "engine": "sqlite",
+        "intent_id": 181,
+        "native_validation_only": true,
+        "requirements": [
+          "exact_CIR_skeleton",
+          "declared_column_types",
+          "explicit_intent_match"
+        ]
+      },
+      "contract": {
+        "inputs": [
+          {
+            "nullable": [
+              true,
+              true
+            ],
+            "types": [
+              "INTEGER",
+              "INTEGER"
+            ]
+          }
+        ],
+        "parameter_types": [],
+        "result_semantics": "bag"
+      }
+    },
+    {
+      "id": 183,
+      "label": "count_distinct_missing",
+      "intent": {
+        "text": "Count distinct non-null values."
+      },
+      "guard": {
+        "assertions": [],
+        "domain_constraints": [],
+        "engine": "sqlite",
+        "intent_id": 183,
+        "native_validation_only": true,
+        "requirements": [
+          "exact_CIR_skeleton",
+          "declared_column_types",
+          "explicit_intent_match"
+        ]
+      },
+      "contract": {
+        "inputs": [
+          {
+            "nullable": [
+              true
+            ],
+            "types": [
+              "INTEGER"
+            ]
+          }
+        ],
+        "parameter_types": [],
+        "result_semantics": "bag"
+      }
+    },
+    {
+      "id": 188,
+      "label": "exists_count_always_row",
+      "intent": {
+        "text": "Return outer values having at least one equal inner value."
+      },
+      "guard": {
+        "assertions": [],
+        "domain_constraints": [],
+        "engine": "sqlite",
+        "intent_id": 188,
+        "native_validation_only": true,
+        "requirements": [
+          "exact_CIR_skeleton",
+          "declared_column_types",
+          "explicit_intent_match"
+        ]
+      },
+      "contract": {
+        "inputs": [
+          {
+            "nullable": [
+              true
+            ],
+            "types": [
+              "INTEGER"
+            ]
+          },
+          {
+            "nullable": [
+              true
+            ],
+            "types": [
+              "INTEGER"
+            ]
+          }
+        ],
+        "parameter_types": [],
+        "result_semantics": "bag"
+      }
+    },
+    {
+      "id": 190,
+      "label": "join_fanout_count",
+      "intent": {
+        "text": "Count left rows that have at least one match, once each."
+      },
+      "guard": {
+        "assertions": [],
+        "domain_constraints": [],
+        "engine": "sqlite",
+        "intent_id": 190,
+        "native_validation_only": true,
+        "requirements": [
+          "exact_CIR_skeleton",
+          "declared_column_types",
+          "explicit_intent_match"
+        ]
+      },
+      "contract": {
+        "inputs": [
+          {
+            "nullable": [
+              true,
+              true
+            ],
+            "types": [
+              "INTEGER",
+              "INTEGER"
+            ]
+          },
+          {
+            "nullable": [
+              true,
+              true
+            ],
+            "types": [
+              "INTEGER",
+              "INTEGER"
+            ]
+          }
+        ],
+        "parameter_types": [],
+        "result_semantics": "bag"
+      }
+    }
+  ],
+  "scope": "generic rule definitions only; no fixtures, benchmark labels or answers"
+}

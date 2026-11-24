@@ -1,0 +1,195 @@
+{
+  "act_limit": 9,
+  "aggregate_phrases": [
+    "how many",
+    "number of",
+    "count of",
+    "sum of",
+    "average",
+    "minimum",
+    "maximum",
+    "avg",
+    "min",
+    "max"
+  ],
+  "audit_enabled": true,
+  "batch_id": "final",
+  "binding_beam": 16,
+  "charged_tool_limit": 8,
+  "condition": "sql_repair_agent",
+  "generation_order": [
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5",
+    "old_quantity",
+    "old_name",
+    "P",
+    "S",
+    "J",
+    "auditS",
+    "auditJ"
+  ],
+  "grain_connectors": [
+    "that have",
+    "with"
+  ],
+  "grain_prefixes": [
+    "show",
+    "list",
+    "return",
+    "give",
+    "give me",
+    "what are"
+  ],
+  "max_audit_depth": 1,
+  "max_completions": 0,
+  "max_s1_candidates": 64,
+  "max_s1_depth": 2,
+  "max_semantic_count_goals": 2,
+  "max_semantic_measure_goals": 1,
+  "max_semantic_relation_goals": 1,
+  "max_semantic_sql_depth": 1,
+  "max_skeleton_candidates": 64,
+  "max_skeleton_depth": 1,
+  "max_sql_utf8_bytes": 16000,
+  "name_excluded_tokens": [
+    "first",
+    "last",
+    "middle",
+    "given",
+    "family"
+  ],
+  "name_phrase_options": [
+    "named",
+    "called"
+  ],
+  "name_type_tokens": [
+    "TEXT",
+    "CHAR",
+    "CLOB"
+  ],
+  "parent": "none",
+  "purpose": "inference",
+  "rules_enabled": true,
+  "s1_enabled": true,
+  "s23_enabled": true,
+  "s31_enabled": true,
+  "selection": "global_actual_public_group_minimum",
+  "semantic_language": {
+    "projection": [
+      "show",
+      "list",
+      "return",
+      "give",
+      "give me",
+      "find",
+      "what are",
+      "what is",
+      "which"
+    ],
+    "negative": [
+      "never",
+      "without",
+      "do not",
+      "does not",
+      "not ... any",
+      "no"
+    ],
+    "verbs": [
+      "have",
+      "has",
+      "had",
+      "use",
+      "used",
+      "using",
+      "participate",
+      "participated",
+      "broadcast",
+      "broadcasted",
+      "pass",
+      "attend",
+      "attended",
+      "own",
+      "owns"
+    ],
+    "prepositions": [
+      "in",
+      "by",
+      "to",
+      "at",
+      "with"
+    ],
+    "determiners": [
+      "a",
+      "an",
+      "the",
+      "any",
+      "some"
+    ],
+    "count_links": [
+      "with",
+      "having",
+      "that have",
+      "who have",
+      "which have",
+      "that has",
+      "who has",
+      "which has",
+      "who built",
+      "that built",
+      "which built",
+      "who reported",
+      "that reported",
+      "which reported"
+    ],
+    "groups": [
+      "for each",
+      "per",
+      "grouped by"
+    ],
+    "measure": [
+      "sum of",
+      "total",
+      "average",
+      "avg"
+    ],
+    "count_comparators": {
+      "exactly": "EQ",
+      "at least": "GTE",
+      "more than": "GT",
+      "at most": "LTE",
+      "less than": "LT",
+      "fewer than": "LT",
+      "no more than": "LTE"
+    },
+    "predicate_comparators": {
+      "more than": "GT",
+      "greater than": "GT",
+      "higher than": "GT",
+      "above": "GT",
+      "over": "GT",
+      "less than": "LT",
+      "lower than": "LT",
+      "below": "LT",
+      "under": "LT",
+      "at least": "GTE",
+      "at most": "LTE",
+      "no more than": "LTE",
+      "equal to": "EQ",
+      "exactly": "EQ"
+    }
+  },
+  "skeleton_enabled": true,
+  "skeleton_max_edges": 3,
+  "skeleton_max_tables": 4,
+  "skeleton_max_trees": 8,
+  "skeleton_tree_states": 256,
+  "source_tiers": {
+    "hint": 0,
+    "original": 1,
+    "rewrite": 2
+  },
+  "tail_probe_remaining": 2
+}
